@@ -61,125 +61,27 @@
                     var _this=this;
 
                     fetch("http://10.2.158.246:3000/register/goReg",{
-                method:'post',
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: `username=${_this.username}&password=${_this.password}`
-                }).then(function (response) {
-                return response.json();//json对象
-                }).then(function(result){
-                console.log(result);
-                if(result==1){
-                    router.push({name:"loading"});
-                }else{
-                  alert('注册失败！')
-                }
-            })
+                        method:'post',
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: `username=${_this.username}&password=${_this.password}`
+                        }).then(function (response) {
+                        return response.json();//json对象
+                        }).then(function(result){
+                        console.log(result);
+                        if(result==1){
+                            router.push({name:"loading"});
+                        }else{
+                          alert('注册失败！')
+                        }
+                    })
                  }
               
             }
         }
 }
-    //   methods:{
-
-
-    //     // changepage(){
-    //     // //router.push(`/goods/detail/${id}`); //es6 字符串模板
-    //     //     router.push({name:"loading"})
-
-    //     // },
-        
-
-
-     
-    // }
-
-    //     }
-
-        // reg(){
-        //    var _this=this;
-        //    fetch("http://10.2.158.246:3000/register/goReg",{
-        //         method:'post',
-        //         headers: {
-        //             "Content-Type": "application/x-www-form-urlencoded"
-        //         },
-        //         body: `username=${_this.username}&password=${_this.password}`
-        //         }).then(function (response) {
-        //         return response.json();//json对象
-        //         }).then(function(result){
-        //         console.log(result);
-        //         if(result==1){
-        //             router.push({name:"loading"});
-        //         }else{
-        //           alert('注册失败！')
-        //         }
-        //     })
-
-        // }
-//     }
-// }
-
-
-// onlogin:function(){
-//     //  var name1=document.getElementById('txt_username');
-//     // var mima1=document.getElementById('user_password');
-//     var re= /^[a-zA-Z][a-zA-Z0-9]{5,19}$/;
-
-//         console.log( re.test(this.name) );
-//         if(!re.test(this.name)){
-//             alert("用户名填写错误！");
-//         }else{
-//          // console.log("222")
-//         // this.$http.post("http://localhost/php/login.php",{name:this.name,mima:this.mima}).then(res=>{
-//         //  console.log(JSON.parse(res.body));
-//          // if(JSON.parse(res.body).length==0){
-//          //        console.log("@222")
-//          }else{
-//                console.log("222")
-//          }
-      
-//             },error=>{
-//               console.log(1111)
-  
-//             })
-//         }
-//     }
- 
-
-
-     
-//     }
-
-//   }
-
-
-
-
-
-// var password=document.getElementById("password");//密码
-// var submit=document.getElementById("submit");//点击注册
-// var succ1=document.getElementsByClassName("succ")[0];//对号
-// var popb=document.getElementsByClassName("popb")[0];//错误的提示
-
-// var re2=/[a-zA-Z]{6,12}/;
-
-// password.onfocus=function(){
-//     password.style.border="1px solid #3879d9";
-//     password.value="";
-//     popb.style.display="none"
-
-// }
-
-// password.onblur=function(){
-//     if (!re2.test(password.value)) {
-//         console.log(22);
-//         popb.style.display="block";
-//         // password.style.border="1px solid red";
-    
-//     }else{
-//         succ1.style.display="block";
-//     }
+   
 
 
     </script>
