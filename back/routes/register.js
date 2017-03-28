@@ -27,6 +27,7 @@ router.post("/goReg",function(req,res,next){
     },function(err,data){
         if(!err){
             console.log(data._id);
+            console.log(data)
             res.send("1");
             //当注册成功，返回1
         }else{

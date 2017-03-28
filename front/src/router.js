@@ -99,7 +99,7 @@ const routes=[
 {
     path:"/mine",
     component:Mine,
-
+    name:"mine",
     redirect:"/mine/mypro",
     children:[
         {

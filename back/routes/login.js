@@ -16,13 +16,13 @@ router.post("/",function(req,res,next){
     },function(error,data){
         if(!error){
             //data 就是匹配到所有数据
-            console.log(data);
+        
            if(data.length==0){
                //用户名密码输入错误
                res.send("0");
            }else{
                //设置sessionID 为有效id
-               req.session.kerwinuser= data[0];
+               req.session.userinfo= data[0];
                //用户名密码输入正确
                res.send("1");
            }

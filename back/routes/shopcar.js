@@ -4,6 +4,7 @@ var shopcar= global.dbhandler.getModelByType("shopcar");
 
 //只能匹配get请求
 router.get("/add",function(req,res,next){
+   console.log(req.session);
     //req.query 获取前端的get请求的数据
     //加入购物车
     posts.create({

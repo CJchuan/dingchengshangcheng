@@ -164,10 +164,7 @@ export default {
                     this.newproduct=response.data.data.new;
                     this.flex=response.data.data.flex;
                  
-              })
-              
-
-    
+              });
   },
   methods:{
     changepage(id){   //跳转页面

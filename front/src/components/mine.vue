@@ -3,7 +3,7 @@
     
         
             <router-view>
-            11111    
+     
             </router-view>
         
          <ul class="footer">

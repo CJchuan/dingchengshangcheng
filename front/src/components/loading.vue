@@ -57,7 +57,7 @@
 
                     alert('用户名或密码错误！')
              }else{
-                router.push({name:"home"})
+                router.push({name:"mine"})
              }
 
             })

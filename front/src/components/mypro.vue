@@ -4,9 +4,11 @@
     	<div class="head" id="log">
     		<div class="face"><img id="avatar" src="../assets/images/noface.png"></div>
     		<div class="info">
-	            <h3 id="nickname">登录鼎城商城</h3>
+	            <h3 id="nickname" v-if="nossion">登录鼎城商城</h3>
+	            <h3 id="nickname" v-else>欢迎回来，{{uname}}</h3>
 	            <p id="info">
-	            	<button class="aui-btn aui-btn-danger" style="padding-bottom:3px" @click="changepage">点击登录或注册</button>
+	            	<button class="aui-btn aui-btn-danger" style="padding-bottom:3px" @click="changepage" v-if="nossion">点击登录或注册</button>
+	            	<button class="aui-btn aui-btn-danger" style="padding-bottom:3px" @click="changepage" v-else>退出当前登录</button> 	
 	            </p>
 	        </div>
 	        <div class="righticon"><i class="iconfont">&#xe647;</i></div>
@@ -74,17 +76,58 @@
 
 
 
-    <!-- </body> -->
+    <script>
 
-    <style>
-    
-    *{
-	    margin:0; 
-	    padding:0;
-    }
-    ul, li {
-	    list-style: none;
+    import router from "../router";
+	export default {
+	  name: 'mypro',
+	  data () {
+	    return {
+	       categorylist:[],
+	       goodslist:[],
+	       currentIndex:0,
+	       isShow:true,
+	       nossion:false,
+	       uname:''
+	    }
+	  },
+	  mounted(){
+	  		 this.$http.get('http://10.2.158.246:3000/mysession')
+              .then( response=>{
+                    console.log(response.data);
+                    if(response.data=="null"){
+                       this.nossion=true
+                    }else{
+                      this.nossion=false;
+                      this.uname=response.data;
+                    }
+              });
+              
+	  },
+
+	  methods:{
+
+	  	changepage(){
+  		//router.push(`/goods/detail/${id}`); //es6 字符串模板
+  			router.push({name:"loading"})
+
+  		},
+  		changead(){
+  			console.log(11);
+  			router.push({name:"myaddress"});
+
+  		}
+
+
+	  }
 	}
+
+    </script>
+
+
+
+    <style scoped>
+  
 	p {
 	    margin-top: 0;
 	    margin-bottom: 0;
@@ -92,22 +135,6 @@
 	    color: #8f8f94;
 	}
     
-   /*	@font-face {
-  font-family: 'iconfont';
-  src: url('../font_s8su6nta1ibmlsor/iconfont.eot');
-  src: url('../font_s8su6nta1ibmlsor/iconfont.eot?#iefix') format('embedded-opentype'),
-  url('../font_s8su6nta1ibmlsor/iconfont.woff') format('woff'),
-  url('../font_s8su6nta1ibmlsor/iconfont.ttf') format('truetype'),
-  url('../font_s8su6nta1ibmlsor/iconfont.svg#iconfont') format('svg');
-}
-.iconfont{
-  font-family:"iconfont" !important;
-  font-size:16px;font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;
-}*/
-
 	body {
 		position: relative;
 	    background-color: #f2f2f2;
@@ -337,56 +364,3 @@
 	
 
     </style>
-
-    <script>
-
-    import router from "../router";
-
-    (function (doc, win) {
-	  var docEl = doc.documentElement,
-	    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-	    recalc = function () {
-	      var clientWidth = docEl.clientWidth;
-	      if (!clientWidth) return;
-	      docEl.style.fontSize = 10 * (clientWidth / 375) + 'px';
-	    };
-	 
-	  if (!doc.addEventListener) return;
-	  win.addEventListener(resizeEvt, recalc, false);
-	  doc.addEventListener('DOMContentLoaded', recalc, false);
-	})(document, window);
-
-	
-	
-	export default {
-	  name: 'mypro',
-	  data () {
-	    return {
-	       categorylist:[],
-	       goodslist:[],
-	       currentIndex:0,
-	       isShow:true
-	    }
-	  },
-
-
-	  methods:{
-
-	  	changepage(){
-  		//router.push(`/goods/detail/${id}`); //es6 字符串模板
-  			router.push({name:"loading"})
-
-  		},
-  		changead(){
-  			console.log(11);
-  			router.push({name:"myaddress"});
-
-  		}
-
-
-	  }
-	}
-
-    </script>
-
-

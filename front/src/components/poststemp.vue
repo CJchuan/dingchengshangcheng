@@ -32,6 +32,7 @@
 </template>
 
 <script scoped>
+import { Indicator } from 'mint-ui';
 import  write  from './write.vue';
 import { MessageBox } from 'mint-ui';
 import router from "../router" ;
@@ -43,10 +44,11 @@ import router from "../router" ;
             }
         },
         mounted(){
+        Indicator.open();
             this.$http.get("http://10.2.158.246:3000/homeapi/posts").then(res=>{
             console.log(res.body.data.list)
                     this.postslist=res.body.data.list;
-
+                       Indicator.close();
             })
         },
         components:{
