@@ -2,17 +2,17 @@
         <div class="zhuce">
             <header class="aui-bar aui-bar-nav aui-bar-danger">
                 <a class="aui-pull-left" onclick="history.go(-1)">
-                    <span class="aui-icon icon-left iconfont">&#xe647;</span>
+                    <span class="aui-icon icon-left"><i class="iconfont">&#xe647;</i></span>
                 </a>
                 <div class="aui-title"><a href="index.html"> 鼎城商城注册</a></div>
             </header>
             <div style="padding:20px;">
                 <div class="form">
                     <input v-model="username" id="name" type="text" class="username" name="name" value="" placeholder="请输用户名">
-                    <input v-model="password" id="password" type="password" class="password" name="password" value="" placeholder="6-12位字符组合密码">
-                    <div class="popb" style="display:none">密码与要求不符</div>
-                    <div class="succ" style="display:none"></div>
-
+                    <input v-model="password" id="password" type="password" class="password" name="password" value="" placeholder="6-12位英文字母组合密码">
+                    <!-- <div class="popb" >*密码与要求不符</div>
+                    <div class="succ" >*设置成功</div>
+ -->
 
                     <button class="aui-btn aui-btn-primary aui-btn-block"  id="submit" @click="reg">免费注册</button>
 
@@ -45,19 +45,22 @@
 
         }
       },
+        methods:{
+            changepage(){
+        // router.push(`/goods/detail/${id}`); //es6 字符串模板
+             router.push({name:"loading"})
 
+         },
+            reg:function(){
+                 var re= /^[a-zA-Z][a-zA-Z0-9]{5,19}$/;
+                  console.log( re.test(this.username) );
+                if(!re.test(this.username)){
+                    alert("用户名填写错误！");
+                }
+                else{
+                    var _this=this;
 
-      methods:{
-
-        changepage(){
-        //router.push(`/goods/detail/${id}`); //es6 字符串模板
-            router.push({name:"loading"})
-
-        },
-
-        reg(){
-           var _this=this;
-           fetch("http://10.2.158.246:3000/register/goReg",{
+                    fetch("http://10.2.158.246:3000/register/goReg",{
                 method:'post',
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -73,60 +76,119 @@
                   alert('注册失败！')
                 }
             })
-
+                 }
+              
+            }
         }
-
-    }
 }
+    //   methods:{
+
+
+    //     // changepage(){
+    //     // //router.push(`/goods/detail/${id}`); //es6 字符串模板
+    //     //     router.push({name:"loading"})
+
+    //     // },
+        
+
+
+     
+    // }
+
+    //     }
+
+        // reg(){
+        //    var _this=this;
+        //    fetch("http://10.2.158.246:3000/register/goReg",{
+        //         method:'post',
+        //         headers: {
+        //             "Content-Type": "application/x-www-form-urlencoded"
+        //         },
+        //         body: `username=${_this.username}&password=${_this.password}`
+        //         }).then(function (response) {
+        //         return response.json();//json对象
+        //         }).then(function(result){
+        //         console.log(result);
+        //         if(result==1){
+        //             router.push({name:"loading"});
+        //         }else{
+        //           alert('注册失败！')
+        //         }
+        //     })
+
+        // }
+//     }
+// }
+
+
+// onlogin:function(){
+//     //  var name1=document.getElementById('txt_username');
+//     // var mima1=document.getElementById('user_password');
+//     var re= /^[a-zA-Z][a-zA-Z0-9]{5,19}$/;
+
+//         console.log( re.test(this.name) );
+//         if(!re.test(this.name)){
+//             alert("用户名填写错误！");
+//         }else{
+//          // console.log("222")
+//         // this.$http.post("http://localhost/php/login.php",{name:this.name,mima:this.mima}).then(res=>{
+//         //  console.log(JSON.parse(res.body));
+//          // if(JSON.parse(res.body).length==0){
+//          //        console.log("@222")
+//          }else{
+//                console.log("222")
+//          }
+      
+//             },error=>{
+//               console.log(1111)
+  
+//             })
+//         }
+//     }
+ 
+
+
+     
+//     }
+
+//   }
+
+
 
 
 
 // var password=document.getElementById("password");//密码
 // var submit=document.getElementById("submit");//点击注册
-// var succ1=document.getElementsByClassName("succ");//对号
-// var popb1=document.getElementsByClassName("popb");//错误的提示
+// var succ1=document.getElementsByClassName("succ")[0];//对号
+// var popb=document.getElementsByClassName("popb")[0];//错误的提示
 
-// var re2=/[a-zA-Z]{6,16}/;
+// var re2=/[a-zA-Z]{6,12}/;
+
+// password.onfocus=function(){
+//     password.style.border="1px solid #3879d9";
+//     password.value="";
+//     popb.style.display="none"
+
+// }
+
 // password.onblur=function(){
 //     if (!re2.test(password.value)) {
-//         popb1.style.display="block";
-//         password.style.border="1px solid red";
-        
+//         console.log(22);
+//         popb.style.display="block";
+//         // password.style.border="1px solid red";
+    
 //     }else{
 //         succ1.style.display="block";
 //     }
-// }
-// password.onfocus=function(){
-//     password.style.border="1px solid #3879d9";
-//     popb1.style.display="none";
-//     password.value="";
-
-// }
-
-
-
 
 
     </script>
 
+
+
  <style>
 
-    /*@font-face {
-        font-family: 'iconfont';
-        src: url('img/font_hth9hqj92bgzm2t9/iconfont.eot');
-        src: url('img/font_hth9hqj92bgzm2t9/iconfont.eot?#iefix') format('embedded-opentype'),
-        url('img/font_hth9hqj92bgzm2t9/iconfont.woff') format('woff'),
-        url('img/font_hth9hqj92bgzm2t9/iconfont.ttf') format('truetype'),
-        url('img/font_hth9hqj92bgzm2t9/iconfont.svg#iconfont') format('svg');
-    }
 
-    .iconfont{
-      font-family:"iconfont" !important;
-      font-size:16px;font-style:normal;
-      -webkit-font-smoothing: antialiased;
-      -webkit-text-stroke-width: 0.02rem;
-      -moz-osx-font-smoothing: grayscale;
-    }*/
     
     *{
         margin:0; 
@@ -290,6 +352,15 @@
         float: right !important;
         color:red;
     }
+
+    .popb{
+        display: none;
+        color:red;
+        font-size: 1.4rem; }
+    .succ{
+        color:green;
+        font-size: 1.4rem; 
+        display: none;}
 
    
 

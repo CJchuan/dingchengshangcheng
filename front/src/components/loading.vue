@@ -4,7 +4,7 @@
  -->    <div id="clickagent">
     		<header class="aui-bar aui-bar-nav aui-bar-danger">
 		        <a class="aui-pull-left" onclick="history.go(-1)">
-		            <span class="aui-icon  iconfont">&#xe647;</span> <!-- icon-left -->
+		            <span class="aui-icon"><i class="iconfont">&#xe647;</i></span> <!-- icon-left -->
 		        </a>
 		        <div class="aui-title"><a href="index.html"> 鼎城商城</a></div>
 		    </header>

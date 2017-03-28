@@ -215,7 +215,14 @@
 	    padding: 2rem 1rem;
 	    
 	}
-	
+	.popb{
+        display: none;
+        color:red;
+        font-size: 1.4rem; }
+    .succ{
+        color:green;
+        font-size: 1.4rem; 
+        display: none;}
 
 	.aui-text-center {
 	    text-align: center !important;
