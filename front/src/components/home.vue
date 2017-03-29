@@ -1,7 +1,6 @@
 ﻿<template>
   <div id="home">
-        111333333
-        <header>
+222111333333        <header>
             <swipe class="my-swipe" :showIndicators="true">
               <swipe-item class="slide1">
                 <img src="http://dc.srh9.com/upload/ad/1612/585e4bab97586.jpg" alt="">
