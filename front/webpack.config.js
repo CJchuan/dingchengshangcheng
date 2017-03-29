@@ -64,7 +64,13 @@ module.exports = {
               target: 'http://10.2.158.246:3000',
               host: '10.2.158.246:3000',
               changeOrigin: true
+          },
+          "/shopcar/add":{
+              target: 'http://10.2.158.246:3000',
+              host: '10.2.158.246:3000',
+              changeOrigin: true
           }
+
     }
   },
   performance: {

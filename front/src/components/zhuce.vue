@@ -8,8 +8,8 @@
             </header>
             <div style="padding:20px;">
                 <div class="form">
-                    <input v-model="username" id="name" type="text" class="username" name="name" value="" placeholder="请输用户名">
-                    <input v-model="password" id="password" type="password" class="password" name="password" value="" placeholder="6-12位英文字母组合密码">
+                    <input v-model="username" id="name" type="text" class="username" name="name" value="" placeholder="请输用户名5-12位英文字母或数字">
+                    <input v-model="password" id="password" type="password" class="password" name="password" value="" placeholder="请输入密码">
                     <!-- <div class="popb" >*密码与要求不符</div>
                     <div class="succ" >*设置成功</div>
  -->
@@ -52,7 +52,7 @@
 
          },
             reg:function(){
-                 var re= /^[a-zA-Z][a-zA-Z0-9]{5,19}$/;
+                 var re= /^[a-zA-Z][a-zA-Z0-9]{5,12}$/;
                   console.log( re.test(this.username) );
                 if(!re.test(this.username)){
                     alert("用户名填写错误！");

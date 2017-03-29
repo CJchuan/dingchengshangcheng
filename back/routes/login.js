@@ -23,7 +23,11 @@ router.post("/",function(req,res,next){
            }else{
                //设置sessionID 为有效id
                // req.session.uname= data[0].nickname;
-               req.session.userinfo= data[0];
+               var options={
+                   uid:data[0]._id,
+                   nickname:data[0].nickname
+               }
+               req.session.userinfo= options;
                //用户名密码输入正确
                res.send("1");
            }
