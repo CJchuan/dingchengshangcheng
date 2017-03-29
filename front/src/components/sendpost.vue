@@ -1,8 +1,9 @@
-<template>
+﻿<template>
     <div class="sendpost">
       <div class="header2">
             <left></left>
             <h2>发表帖子</h2>
+       我改的
       </div>
       <Writecont ref="writecont" ></Writecont>
       <mt-button type="primary" @click="sendpost">发表</mt-button>
