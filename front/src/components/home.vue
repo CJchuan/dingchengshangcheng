@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <div id="home">
-        
+        111
         <header>
             <swipe class="my-swipe" :showIndicators="true">
               <swipe-item class="slide1">
