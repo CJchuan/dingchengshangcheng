@@ -1,6 +1,7 @@
 ﻿<template>
   <div id="home">
-        111
+        222
+ 		
         <header>
             <swipe class="my-swipe" :showIndicators="true">
               <swipe-item class="slide1">
