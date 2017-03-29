@@ -7,7 +7,7 @@ router.get("/add",function(req,res,next){
    console.log(req.session);
     //req.query 获取前端的get请求的数据
     //加入购物车
-    posts.create({
+    shopcar.create({
         
     },function(error,data){
       if(!error){
@@ -19,7 +19,7 @@ router.get("/add",function(req,res,next){
 router.get("/read",function(req,res,next){
     //req.query 获取前端的get请求的数据
     //读取购物车
-    posts.find({
+    shopcar.find({
         userId:req.query.userid
     },function(error,data){
       if(!error){
@@ -31,7 +31,7 @@ router.get("/read",function(req,res,next){
 router.get("/del",function(req,res,next){
     //req.query 获取前端的get请求的数据
     //删除某一物品
-    posts.remove({
+    shopcar.remove({
         goodsId:req.query.goodsid
     },function(error,data){
       if(!error){

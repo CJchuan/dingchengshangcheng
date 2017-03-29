@@ -21,6 +21,7 @@ var upsession = require("./routes/upsession");
 var register = require("./routes/register");
 var login = require("./routes/login");
 var posts=require("./routes/posts");
+var shopcar=require("./routes/shopcar");
 //----------------自定义的路由模块----------------------
 
 
@@ -65,6 +66,7 @@ app.use('/register', register);
 app.use('/login', login);
 app.use('/mysession', mysession);
 app.use('/upsession', upsession);
+app.use('/shopcar', shopcar);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

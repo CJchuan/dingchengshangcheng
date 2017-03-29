@@ -61,6 +61,7 @@
 </template>
 
 <script>
+    import { Indicator } from 'mint-ui';
     import router from "../router";	 
     export default{
     	name:'list',
@@ -72,22 +73,17 @@
     			index:0
     		}
     	},
-    	
-    	mounted(){
-	    		//console.log(this)
-	    		//console.log(this.$route.params.cateid);
-    		 	this.$http.get("http://10.2.158.246:3000/homeapi/list/def?id="+this.$route.params.cateid).then(res=>{
-                    //console.log(res.body.data);
-    		 		this.kerwinlist=res.body.data.list;
-    		 		//this.changePage(0,this.kerwinlist[0].id);//页面初始化
-    		 		//this.hname=this.kerwinlist[0].mname; //默认加载第一个的名字
-    		 		
-    		 	},error=>{
-    		 		
-    		 	})
-    	},
-
-    	
+    	  beforeRouteEnter(to,from,next){
+        next(vm=>{
+            Indicator.open();
+            vm.$http.get(`http://10.2.158.246:3000/homeapi/list/def?id=${vm.$route.params.cateid}`).then(res=>{
+               console.log(res.body.data)
+                    vm.kerwinlist=res.body.data.list;
+                 Indicator.close();
+            });
+                    
+        })
+        },
     	methods:{
     		handleClick(index,id){
     			this.currentIndex=index;

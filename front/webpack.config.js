@@ -70,6 +70,15 @@ module.exports = {
               host: '10.2.158.246:3000',
               changeOrigin: true
           }
+<<<<<<< HEAD
+=======
+          // ,
+          // "/shopcar/add":{
+          //     target: 'http://10.2.158.246:3000',
+          //     host: '10.2.158.246:3000',
+          //     changeOrigin: true
+          // }
+>>>>>>> ef8b5750dd6f4d3e5a3f08bcdfc55854efa9eb34
 
     }
   },

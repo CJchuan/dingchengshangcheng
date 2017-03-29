@@ -74,7 +74,11 @@ require('vue-swipe/dist/vue-swipe.css');
     		 	  history.go(-1);
     		 },
              addcar(id){
+<<<<<<< HEAD
                 this.$http.post('/shopcar/add',{goodsID:id}).then(res=>{
+=======
+                this.$http.get('/shopcar/add',{goodsID:id}).then(res=>{
+>>>>>>> ef8b5750dd6f4d3e5a3f08bcdfc55854efa9eb34
                  console.log(res.body.data)
                  if(res.body.data=='1'){
                     Toast({
