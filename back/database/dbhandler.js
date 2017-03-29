@@ -23,6 +23,19 @@ var postsobj = {
 }
 //创建article模型，基于这个模型就会创建articles集合
 mongoose.model("posts",new Schema(postsobj));
+var shopcarobj = {
+        goodsID:Number,//商品ID
+        goodsName:String,//商品名称
+        uid:Number,//用户ID
+        nickname:String,//用户昵称
+        num:Number,//购买数量
+        ctime:String,//购买时间
+        imghash:String,//商品图片地址
+        price:String,//单价
+        bprice:Number//原价
+}
+//创建article模型，基于这个模型就会创建articles集合
+mongoose.model("shopcar",new Schema(shopcarobj));
 
 
 module.exports = {

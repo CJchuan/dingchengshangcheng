@@ -35,7 +35,6 @@ router.get('/write', function(req, res, next) {
     // })
  
       posts.create({
-        postid:0,
         uid:req.query.userId,
         nickname:req.query.username,
         content:req.query.word,
@@ -44,12 +43,13 @@ router.get('/write', function(req, res, next) {
         attachs:req.query.imgurllist,//插入的图片
         digg:0,
         view:0,
-        apply:0
+        apply:0,
+        list:[]
     },function(error,data){
       if(!error){
         console.log(data);
          console.log(data._id);
-        res.send(data);
+        res.send('1');
       }
     })
    

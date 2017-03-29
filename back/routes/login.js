@@ -22,6 +22,7 @@ router.post("/",function(req,res,next){
                res.send("0");
            }else{
                //设置sessionID 为有效id
+               // req.session.uname= data[0].nickname;
                req.session.userinfo= data[0];
                //用户名密码输入正确
                res.send("1");

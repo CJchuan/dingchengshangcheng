@@ -1,7 +1,7 @@
 
 <template>
-    <div class="Writecont">
-     <textarea id="content" name="content" style="width:100%;height:20rem;padding:1rem;margin:0;border:0;overflow-y:auto;font-size:1.6rem" placeholder="说点什么吧...(点击加号添加图片，长按图片删除)"></textarea>
+    <div class="Writecont" id="writecont">
+     <textarea id="content" name="content" style="width:100%;height:20rem;padding:1rem;margin:0;border:0;overflow-y:auto;font-size:1.6rem" placeholder="说点什么吧...(点击加号添加图片，长按图片删除)" v-model="myinpput"></textarea>
       <div class="choosePic">
             <span class="add">
                 +
@@ -34,7 +34,8 @@
         name:'Writecont',
         data(){
             return{
-
+                myinpput:"",
+                imglist:""
             }
         }
     }

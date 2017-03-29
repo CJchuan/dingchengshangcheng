@@ -30,6 +30,13 @@ const Postdetail=resolve=>require(["./components/postdetail.vue"],resolve);
 const Mynews=resolve=>require(["./components/mynews.vue"],resolve);
 const Apply=resolve=>require(["./components/apply.vue"],resolve);
 
+    //我的分类
+const Getory=resolve=>require(["./components/getory.vue"],resolve);
+    //我的列表
+const List=resolve=>require(["./components/list.vue"],resolve);
+    //我的详情
+const Detail=resolve=>require(["./components/detail.vue"],resolve);
+
 
 
 
@@ -57,8 +64,29 @@ const routes=[
     component:Home,
     name:"home"
 },
-{path:"/classify",component:Classify},
-{path:"/shopcar",component:Shopcar},
+  {
+  	path:'/classify', 	
+  	component:Classify,
+  	redirect:"/classify/getory",
+    children:[
+       {
+       	 path:"getory",
+       	 name:'getory',
+       	 component:Getory
+       },
+       {
+       	 path:"list/:cateid",
+       	 name:'list',
+       	 component:List
+       },
+       {
+       	 path:"detail/:detid",
+       	 name:"detail",
+       	 component:Detail
+       }
+    ]
+  },
+{path:"/shopcar",component:Shopcar,name:"shopcar"},
 {
     path:"/community",
     component:Community,

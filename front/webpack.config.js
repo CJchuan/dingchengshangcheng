@@ -41,6 +41,9 @@ module.exports = {
       }
     ]
   },
+
+  
+
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
@@ -48,7 +51,21 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
+
+    proxy: {
+          '/login': {
+              target: 'http://10.2.158.246:3000',
+              host: '10.2.158.246:3000',
+              changeOrigin: true
+          },
+
+          "/upsession":{
+              target: 'http://10.2.158.246:3000',
+              host: '10.2.158.246:3000',
+              changeOrigin: true
+          }
+    }
   },
   performance: {
     hints: false

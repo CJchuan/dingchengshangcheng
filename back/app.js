@@ -17,6 +17,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var api = require("./api/homeapi");
 var mysession = require("./api/mysession");
+var upsession = require("./routes/upsession");
 var register = require("./routes/register");
 var login = require("./routes/login");
 var posts=require("./routes/posts");
@@ -63,6 +64,7 @@ app.use('/posts', posts);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/mysession', mysession);
+app.use('/upsession', upsession);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
